@@ -67,10 +67,10 @@ class ActiveWorkoutTableViewController: UITableViewController, WeightUpdatedDele
         if (indexPath.row < exerciseCount)
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("exercise", forIndexPath: indexPath) as! ActiveWorkoutTableViewCell
-            let exerciseForCell = self.currentWorkout.exercises[indexPath.row] as Exercise
+            let exerciseForCell = currentWorkout.exercises[indexPath.row] as Exercise
             cell.exerciseLabel.text = exerciseForCell.name
-            cell.exerciseLabel.textColor = self.textColorScheme[indexPath.row % textColorScheme.count]
-            cell.backgroundColor = self.cellColorScheme[indexPath.row % cellColorScheme.count]
+            cell.exerciseLabel.textColor = textColorScheme[indexPath.row % textColorScheme.count]
+            cell.backgroundColor = cellColorScheme[indexPath.row % cellColorScheme.count]
             cell.addRepButtons(Int(exerciseForCell.sets.count))
             
 //            let intObject = saveWorkout.weightLiftedForExercise.objectAtIndex(UInt(indexPath.row)) as! SwiftIntObject
@@ -81,7 +81,7 @@ class ActiveWorkoutTableViewController: UITableViewController, WeightUpdatedDele
         else // For the footer cell
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("footer", forIndexPath: indexPath) as! ActiveWorkoutTableViewCell
-            cell.backgroundColor = self.cellColorScheme[indexPath.row % cellColorScheme.count]
+            cell.backgroundColor = cellColorScheme[indexPath.row % cellColorScheme.count]
             return cell
         }
     }
@@ -144,12 +144,29 @@ class ActiveWorkoutTableViewController: UITableViewController, WeightUpdatedDele
         println("unwinding")
     }
     
+//    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+////        let footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 40))
+////        
+////        footerView.backgroundColor = UIColor.blackColor()
+////        
+////        return footerView
+//        let index = NSIndexPath(forItem: 0, inSection: 0)
+//        let cell = tableView.dequeueReusableCellWithIdentifier("footer", forIndexPath: index) as! ActiveWorkoutTableViewCell
+//        cell.backgroundColor = cellColorScheme[1 % cellColorScheme.count]
+//        return cell.contentView
+//    }
+    
+//    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        // TODO: change this
+//        return 100
+//    }
+    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "updateWeightVC"
         {
-            var btnPos : CGPoint = sender!.convertPoint(CGPointZero, toView: self.tableView)
-            var indexPathForCellToUpdate: NSIndexPath = self.tableView.indexPathForRowAtPoint(btnPos)!
+            var btnPos : CGPoint = sender!.convertPoint(CGPointZero, toView: tableView)
+            var indexPathForCellToUpdate: NSIndexPath = tableView.indexPathForRowAtPoint(btnPos)!
             let cellToUpdate = tableView.cellForRowAtIndexPath(indexPathForCellToUpdate) as! ActiveWorkoutTableViewCell
             let updateWeightVC = segue.destinationViewController as! WeightChangerViewController
             updateWeightVC.weightAsString = cellToUpdate.weightLiftedLabelButton.titleLabel!.text!

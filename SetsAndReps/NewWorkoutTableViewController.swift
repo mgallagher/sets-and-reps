@@ -30,11 +30,11 @@ class NewWorkoutTableViewController: UITableViewController, UITableViewDelegate,
         if let preconfiguredWorkoutVC = segue.sourceViewController as? PreconfiguredWorkoutsTableViewController
             where needToAddRow == true
         {
-            self.allActivePlans = Plan().getActivePlans() // Refresh allActivePlans
+            allActivePlans = Plan().getActivePlans() // Refresh allActivePlans
             let index = NSIndexPath(forRow: 0, inSection: 0)
-            self.tableView.beginUpdates()
-            self.tableView.insertRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Right)
-            self.tableView.endUpdates()
+            tableView.beginUpdates()
+            tableView.insertRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Right)
+            tableView.endUpdates()
             needToAddRow = false
         }
     }
@@ -94,7 +94,7 @@ class NewWorkoutTableViewController: UITableViewController, UITableViewDelegate,
         if let vc = segue.destinationViewController as? ActiveWorkoutTableViewController
             where segue.identifier == "StartWorkout"
         {
-            let path = self.tableView.indexPathForSelectedRow()!.row
+            let path = tableView.indexPathForSelectedRow()!.row
             let plan = allActivePlans[Int(path)] as Plan
             vc.currentWorkout = Workout(planToCopyFrom: plan)
         }
@@ -134,7 +134,7 @@ class NewWorkoutTableViewController: UITableViewController, UITableViewDelegate,
     
     // Header cells
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = self.tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! NewWorkoutTableViewCell
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! NewWorkoutTableViewCell
         headerCell.label.text = headerCellLabels[section]
         
         return headerCell.contentView

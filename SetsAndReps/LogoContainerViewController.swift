@@ -45,8 +45,8 @@ class LogoContainerViewController: UIViewController {
     
     func toggleLogoSizeChanger() {
         if (!logoIsShrunk) {
-            self.view.layoutIfNeeded()
-            self.expandedConstraints = darkBackgroundView.constraints()
+            view.layoutIfNeeded()
+            expandedConstraints = darkBackgroundView.constraints()
             darkBackgroundView.removeConstraints(darkBackgroundView.constraints())
             //  println(darkBackgroundViewBottom.constant)
             
@@ -56,16 +56,16 @@ class LogoContainerViewController: UIViewController {
             ambersandLabel.removeConstraint(ambersandLabelCenterX)
             ambersandLabel.removeConstraint(ambersandLabelCenterY)
             
-            self.darkBackgroundView.snp_makeConstraints { (make) -> Void in
+            darkBackgroundView.snp_makeConstraints { (make) -> Void in
                 make.height.equalTo(90)
             }
-            self.setsRepsLabel.snp_makeConstraints { (make) -> Void in
+            setsRepsLabel.snp_makeConstraints { (make) -> Void in
                 make.baseline.equalTo(self.setsRepsLabel.superview!.snp_bottom)
                 make.centerX.equalTo(darkBackgroundView)
                 //  make.top.equalTo(darkBackgroundView.snp_top).offset(20)
             }
             
-            self.ambersandLabel.snp_makeConstraints { (make) -> Void in
+            ambersandLabel.snp_makeConstraints { (make) -> Void in
                 make.centerX.equalTo(setsRepsLabel).offset(0)
                 make.centerY.equalTo(setsRepsLabel).offset(5)
             }
@@ -75,23 +75,23 @@ class LogoContainerViewController: UIViewController {
                 self.ambersandLabel.transform = CGAffineTransformScale(self.ambersandLabel.transform, 0.6, 0.6)
                 self.view.layoutIfNeeded()
             })
-            self.logoIsShrunk = true
+            logoIsShrunk = true
         }
         else {
-            if self.expandedConstraints != nil
+            if expandedConstraints != nil
             {
-                self.view.layoutIfNeeded()
+                view.layoutIfNeeded()
                 darkBackgroundView.removeConstraints(darkBackgroundView.constraints())
-                self.darkBackgroundView.snp_remakeConstraints { (make) -> Void in
+                darkBackgroundView.snp_remakeConstraints { (make) -> Void in
                 }
-                darkBackgroundView.addConstraints(self.expandedConstraints!)
+                darkBackgroundView.addConstraints(expandedConstraints!)
                 UIView.animateWithDuration(0.5, animations: {
                     self.setsRepsLabel.transform = CGAffineTransformScale(self.setsRepsLabel.transform, 1.4, 1.4)
                     self.ambersandLabel.transform = CGAffineTransformScale(self.ambersandLabel.transform, 1.4, 1.4)
                     self.view.layoutIfNeeded()
                 })
             }
-            self.logoIsShrunk = false
+            logoIsShrunk = false
         }
     }
     

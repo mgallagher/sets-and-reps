@@ -51,6 +51,7 @@ class Plan : Object
     dynamic var isPreconfigured = false
     dynamic var isActive = false
     dynamic var dateActivated = NSDate(timeIntervalSince1970: 1)
+    dynamic var dateLastCompleted = NSDate(timeIntervalSince1970: 1)
     
     convenience init(name: String) {
         self.init()

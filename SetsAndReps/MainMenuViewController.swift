@@ -41,9 +41,9 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UIGestureRe
         switch (indexPath.row) {
         case 0:
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            self.performSegueWithIdentifier("New Workout", sender: self)
+            performSegueWithIdentifier("New Workout", sender: self)
 //        case 1:
-//            self.performSegueWithIdentifier("History", sender: self)
+//            performSegueWithIdentifier("History", sender: self)
         default:
             ()
         }

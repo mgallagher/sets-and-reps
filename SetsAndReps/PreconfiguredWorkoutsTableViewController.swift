@@ -17,7 +17,7 @@ class PreconfiguredWorkoutsTableViewController: UITableViewController {
     let allPreconfiguredPlans = Plan().getPreconfiguredPlans()
     
     @IBAction func addToDB(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        navigationController?.popToRootViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
@@ -92,7 +92,7 @@ class PreconfiguredWorkoutsTableViewController: UITableViewController {
     
     // Header cell
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = self.tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! PreconfiguredWorkoutsTableViewCell
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! PreconfiguredWorkoutsTableViewCell
         headerCell.headerLabel.text = "PRECONFIGURED WORKOTUS"
         headerCell.backgroundColor = UIColor.tyLightBlueColor()
         return headerCell
