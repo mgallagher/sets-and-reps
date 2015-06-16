@@ -18,6 +18,7 @@ class NewWorkoutTableViewController: UITableViewController, UITableViewDelegate,
     let realm = Realm()
     var allActivePlans = Plan().getActivePlans()
     var logoContainerViewVC : LogoContainerViewController?
+//    var rowToAdd = (needTo: false, index: -1)
     var needToAddRow = false
     
     override func viewDidLoad() {
@@ -34,7 +35,6 @@ class NewWorkoutTableViewController: UITableViewController, UITableViewDelegate,
             self.tableView.beginUpdates()
             self.tableView.insertRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Right)
             self.tableView.endUpdates()
-            // TODO: maybe use a closure or delegate instead of needToAddRow flag
             needToAddRow = false
         }
     }
@@ -52,6 +52,7 @@ class NewWorkoutTableViewController: UITableViewController, UITableViewDelegate,
         switch section
         {
         case 0:
+            allActivePlans = Plan().getActivePlans()
             return Int(allActivePlans.count)
         case 1:
             return addWorkoutLabels.count
@@ -113,6 +114,22 @@ class NewWorkoutTableViewController: UITableViewController, UITableViewDelegate,
         default:
             break
         }
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        let deactivate = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Deactivate") { (indexPath) -> Void in
+            self.allActivePlans = Plan().getActivePlans()
+//            println("deactivating \(self.allActivePlans[indexPath.1.row].name)")
+            self.realm.write {
+                self.allActivePlans[indexPath.1.row].isActive = false
+            }
+            tableView.deleteRowsAtIndexPaths([indexPath.1], withRowAnimation: UITableViewRowAnimation.Fade)
+        }
+        deactivate.backgroundColor = UIColor.tyOrangeColor()
+        return [deactivate]
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     
     // Header cells

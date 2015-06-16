@@ -50,6 +50,7 @@ class Plan : Object
     let defaultExerciseList = List<Exercise>()
     dynamic var isPreconfigured = false
     dynamic var isActive = false
+    dynamic var dateActivated = NSDate(timeIntervalSince1970: 1)
     
     convenience init(name: String) {
         self.init()
@@ -79,7 +80,7 @@ class Plan : Object
     
     func getActivePlans() -> Results<Plan> {
         let realm = Realm()
-        let actives = realm.objects(Plan).filter("isActive == true")
+        let actives = realm.objects(Plan).filter("isActive == true").sorted("dateActivated", ascending: false)
         return actives
     }
 }

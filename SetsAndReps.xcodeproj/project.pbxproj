@@ -77,7 +77,6 @@
 		4CDA28161AC24DEA00DFDD5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CDA28171AC24DEA00DFDD5E /* SetsAndRepsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsAndRepsTests.swift; sourceTree = "<group>"; };
 		4CDA282B1AC26A2300DFDD5E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
-		4CEEFBFC1AEDE93C00280B3F /* SetsReps.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SetsReps.playground; sourceTree = "<group>"; };
 		803B307AB14C83E15C433E33 /* Pods-SetsAndReps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetsAndReps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SetsAndReps/Pods-SetsAndReps.debug.xcconfig"; sourceTree = "<group>"; };
 		C450154D33953A5EEAD81496 /* Pods-SetsAndReps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SetsAndReps.release.xcconfig"; path = "Pods/Target Support Files/Pods-SetsAndReps/Pods-SetsAndReps.release.xcconfig"; sourceTree = "<group>"; };
 		F943171F92EA493867A77B87 /* Pods_SetsAndReps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SetsAndReps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +166,6 @@
 				4CDA27FE1AC24DE900DFDD5E /* SetsAndReps */,
 				4CDA28141AC24DEA00DFDD5E /* SetsAndRepsTests */,
 				4CDA27FD1AC24DE900DFDD5E /* Products */,
-				4CEEFBFC1AEDE93C00280B3F /* SetsReps.playground */,
 				6A9C1E49EC202BDFC4420936 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -488,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -524,7 +522,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

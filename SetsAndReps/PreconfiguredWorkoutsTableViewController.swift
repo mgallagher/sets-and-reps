@@ -42,18 +42,13 @@ class PreconfiguredWorkoutsTableViewController: UITableViewController {
             let index = tableView.indexPathForCell(cell)
             let selectedPlan = allPreconfiguredPlans[index!.row] as Plan
             
-            
             if selectedPlan.isActive == false {
                 cell.accessoryType = .Checkmark
                 let user = User().getUser()
                 realm.write {
                     user!.activePlans.append(selectedPlan)
                     selectedPlan.isActive = true
-                }
-            }
-            for plan in allPreconfiguredPlans {
-                if plan.isActive {
-                    println(plan.name)
+                    selectedPlan.dateActivated = NSDate()
                 }
             }
         }
