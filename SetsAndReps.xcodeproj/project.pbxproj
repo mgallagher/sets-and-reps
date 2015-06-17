@@ -25,6 +25,7 @@
 		4CA24A011AC28A1A006EF2F1 /* Miso-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CA24A001AC28A1A006EF2F1 /* Miso-Bold.otf */; };
 		4CAA6B201AE4540C00B415F1 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA6B1F1AE4540C00B415F1 /* Models.swift */; };
 		4CAA6B281AE4BEF600B415F1 /* WeightChangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA6B271AE4BEF600B415F1 /* WeightChangerViewController.swift */; };
+		4CB086461B30734B000BEC5E /* ActiveWorkoutFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB086451B30734B000BEC5E /* ActiveWorkoutFooter.xib */; };
 		4CD3C7AD1AD7557B00000CB6 /* PreconfiguredWorkoutsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3C7AC1AD7557B00000CB6 /* PreconfiguredWorkoutsTableViewController.swift */; };
 		4CD3C7AF1AD8718F00000CB6 /* PreconfiguredWorkoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3C7AE1AD8718F00000CB6 /* PreconfiguredWorkoutsTableViewCell.swift */; };
 		4CDA28021AC24DE900DFDD5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA28011AC24DE900DFDD5E /* AppDelegate.swift */; };
@@ -65,6 +66,8 @@
 		4CA24A001AC28A1A006EF2F1 /* Miso-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Miso-Bold.otf"; path = "Assets/Miso/Miso-Bold.otf"; sourceTree = "<group>"; };
 		4CAA6B1F1AE4540C00B415F1 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4CAA6B271AE4BEF600B415F1 /* WeightChangerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightChangerViewController.swift; sourceTree = "<group>"; };
+		4CB086451B30734B000BEC5E /* ActiveWorkoutFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActiveWorkoutFooter.xib; sourceTree = "<group>"; };
+		4CB218C91B3103460081BA91 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; };
 		4CD3C7AC1AD7557B00000CB6 /* PreconfiguredWorkoutsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreconfiguredWorkoutsTableViewController.swift; sourceTree = "<group>"; };
 		4CD3C7AE1AD8718F00000CB6 /* PreconfiguredWorkoutsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreconfiguredWorkoutsTableViewCell.swift; sourceTree = "<group>"; };
 		4CDA27FC1AC24DE900DFDD5E /* SetsAndReps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetsAndReps.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +149,7 @@
 				4C9BDDC31AE1820700221495 /* ActiveWorkoutTableViewController.swift */,
 				4C9BDDC51AE1822500221495 /* ActiveWorkoutTableViewCell.swift */,
 				4CAA6B271AE4BEF600B415F1 /* WeightChangerViewController.swift */,
+				4CB086451B30734B000BEC5E /* ActiveWorkoutFooter.xib */,
 			);
 			name = "Active Workout";
 			sourceTree = "<group>";
@@ -164,6 +168,7 @@
 			children = (
 				4C03DF4A1AD4757E00A91811 /* Frameworks */,
 				4CDA27FE1AC24DE900DFDD5E /* SetsAndReps */,
+				4CB218C91B3103460081BA91 /* Playground.playground */,
 				4CDA28141AC24DEA00DFDD5E /* SetsAndRepsTests */,
 				4CDA27FD1AC24DE900DFDD5E /* Products */,
 				6A9C1E49EC202BDFC4420936 /* Pods */,
@@ -336,6 +341,7 @@
 				4CDA28071AC24DE900DFDD5E /* Main.storyboard in Resources */,
 				4CDA28091AC24DE900DFDD5E /* Images.xcassets in Resources */,
 				4CA24A011AC28A1A006EF2F1 /* Miso-Bold.otf in Resources */,
+				4CB086461B30734B000BEC5E /* ActiveWorkoutFooter.xib in Resources */,
 				4CDA282C1AC26A2300DFDD5E /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

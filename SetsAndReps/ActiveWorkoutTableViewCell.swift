@@ -16,6 +16,16 @@ class ActiveWorkoutTableViewCell: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     var completedSetButtons = [UIButton]()
     var buttonConstraintsToRemove = [Constraint]()
+    let buttonSize = 57
+    var setButton : UIButton {
+        get {
+            var setButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            setButton.backgroundColor = UIColor.whiteColor()
+            setButton.layer.cornerRadius = CGFloat(buttonSize/2)
+            setButton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+            return setButton
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,40 +37,27 @@ class ActiveWorkoutTableViewCell: UITableViewCell {
     }
     
     func addRepButtons(numButtons: Int) {
-        let buttonSize = 57
+        
+        // From http://stackoverflow.com/a/29589446
+        // Just a neat way of initializing an array with unique values
+        completedSetButtons = (0 ..< numButtons).map { _ in self.setButton }
         
         // First button
-        let firstSetButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        firstSetButton.backgroundColor = UIColor.whiteColor()
-        firstSetButton.layer.cornerRadius = CGFloat(buttonSize/2)
-        firstSetButton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        completedSetButtons.append(firstSetButton)
         superview!.addSubview(completedSetButtons[0])
         
         completedSetButtons[0].snp_makeConstraints { (make) -> Void in
             self.buttonConstraintsToRemove.append(make.left.equalTo(self.cellView.snp_trailing).constraint) // Remove for animation
             make.top.equalTo(self.exerciseLabel.snp_bottom).offset(16)
-            make.height.equalTo(buttonSize)
-            make.width.equalTo(buttonSize)
+            make.size.equalTo(buttonSize)
         }
         
         // Adding the rest of the buttons
         for index in 1...numButtons-1 {
-            
-            let followingButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-            followingButton.backgroundColor = UIColor.whiteColor()
-            followingButton.layer.cornerRadius = CGFloat(buttonSize/2)
-            followingButton.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-            
-            completedSetButtons.append(followingButton)
             superview!.addSubview(completedSetButtons[index])
-            
             completedSetButtons[index].snp_makeConstraints { (make) -> Void in
                 self.buttonConstraintsToRemove.append(make.left.equalTo(self.cellView.snp_trailing).constraint) // Remove for animation
                 make.top.equalTo(completedSetButtons[index-1].snp_top)
-                make.height.equalTo(buttonSize)
-                make.width.equalTo(buttonSize)
+                make.size.equalTo(buttonSize)
             }
         }
     }
