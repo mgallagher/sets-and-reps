@@ -144,22 +144,30 @@ class ActiveWorkoutTableViewController: UITableViewController, WeightUpdatedDele
         println("unwinding")
     }
     
-//    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-////        let footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 40))
-////        
-////        footerView.backgroundColor = UIColor.blackColor()
-////        
-////        return footerView
-//        let index = NSIndexPath(forItem: 0, inSection: 0)
-//        let cell = tableView.dequeueReusableCellWithIdentifier("footer", forIndexPath: index) as! ActiveWorkoutTableViewCell
-//        cell.backgroundColor = cellColorScheme[1 % cellColorScheme.count]
-//        return cell.contentView
-//    }
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+
+//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 85))
+//        footerView.backgroundColor = UIColor(red: 243.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
+//        let button = UIButton(frame: CGRect(x: tableView.bounds.width - 65, y: 10, width: 60 , height: 30))
+//        button.setTitle("Reply", forState: UIControlState.Normal)
+//        button.backgroundColor = UIColor(red: 155.0/255, green: 189.0/255, blue: 113.0/255, alpha: 1)
+//        button.layer.cornerRadius = 5
+//        button.addTarget(self, action: "reply", forControlEvents: UIControlEvents.TouchUpInside)
+//        footerView.addSubview(button)
+//        return footerView
+        if let footer = UINib(nibName: "ActiveWorkoutFooter", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView {
+            return footer
+        }
+//        return UINib(nibName: "ActiveWorkoutFooter", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as UIView
+        else {
+            return UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 85))
+        }
+    }
     
-//    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        // TODO: change this
-//        return 100
-//    }
+   override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+       // TODO: change this
+       return 85
+   }
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
