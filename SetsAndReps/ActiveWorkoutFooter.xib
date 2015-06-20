@@ -2,40 +2,55 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="ZJx-9K-XBZ">
+        <view contentMode="scaleToFill" id="ZJx-9K-XBZ" customClass="FooterNibUIView" customModule="SetsAndReps" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="qF3-56-JQ4">
-                    <rect key="frame" x="271" y="14" width="58" height="57"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKV-vT-zFr">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="qF3-56-JQ4">
+                            <rect key="frame" x="277" y="19" width="47" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="qF3-56-JQ4" secondAttribute="height" multiplier="58:47" constant="1" id="DcK-3x-LRP"/>
+                                <constraint firstAttribute="height" constant="80" id="Kp8-Ff-PGg"/>
+                                <constraint firstAttribute="width" constant="47" id="V50-yL-m4G"/>
+                                <constraint firstAttribute="height" constant="47" id="tJj-Uq-ds6"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="DcK-3x-LRP"/>
+                                    <exclude reference="Kp8-Ff-PGg"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="Kp8-Ff-PGg"/>
-                        <constraint firstAttribute="height" constant="57" id="tJj-Uq-ds6"/>
+                        <constraint firstAttribute="centerY" secondItem="qF3-56-JQ4" secondAttribute="centerY" id="2cq-0O-0uT"/>
+                        <constraint firstAttribute="centerX" secondItem="qF3-56-JQ4" secondAttribute="centerX" id="WkW-MT-IIt"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Kp8-Ff-PGg"/>
-                        </mask>
-                    </variation>
-                </imageView>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="qF3-56-JQ4" firstAttribute="centerX" secondItem="ZJx-9K-XBZ" secondAttribute="centerX" id="1Tp-Pw-efR"/>
-                <constraint firstItem="qF3-56-JQ4" firstAttribute="top" secondItem="ZJx-9K-XBZ" secondAttribute="top" constant="3" id="1ao-t0-VF9"/>
-                <constraint firstItem="qF3-56-JQ4" firstAttribute="centerY" secondItem="ZJx-9K-XBZ" secondAttribute="centerY" id="glS-Zo-zhj"/>
+                <constraint firstItem="gKV-vT-zFr" firstAttribute="top" secondItem="ZJx-9K-XBZ" secondAttribute="top" id="66e-jw-A3Y"/>
+                <constraint firstAttribute="trailing" secondItem="gKV-vT-zFr" secondAttribute="trailing" id="M5D-su-bIx"/>
+                <constraint firstItem="gKV-vT-zFr" firstAttribute="leading" secondItem="ZJx-9K-XBZ" secondAttribute="leading" id="cwi-dM-0zz"/>
+                <constraint firstAttribute="bottom" secondItem="gKV-vT-zFr" secondAttribute="bottom" id="wRW-75-FeA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="1ao-t0-VF9"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="358" y="14"/>
+            <connections>
+                <outlet property="background" destination="gKV-vT-zFr" id="T23-sx-kgm"/>
+                <outlet property="backgroundUIView" destination="gKV-vT-zFr" id="xCa-iQ-9Yd"/>
+                <outlet property="trst" destination="qF3-56-JQ4" id="qTR-PR-pa5"/>
+            </connections>
+            <point key="canvasLocation" x="454" y="73.5"/>
         </view>
     </objects>
     <resources>

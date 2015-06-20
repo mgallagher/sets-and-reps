@@ -17,23 +17,15 @@ class ActiveWorkoutTableViewController: UITableViewController, WeightUpdatedDele
     var tempIndex = NSIndexPath(forRow: -1, inSection: -1)
     var selectedIndex = -1
     var buttonsInPlace = false
+    let footerHeight = CGFloat(48.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let weightToLift = NSArray(objects:
-//            SwiftIntObject(),
-//            SwiftIntObject(),
-//            SwiftIntObject())
-//        saveWorkout.weightLiftedForExercise.addObjects(weightToLift)
-
-//        let parentVC = self.navigationController?.parentViewController as! LogoContainerViewController
-//        parentVC.toggleLogoSizeChanger()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        
         if !buttonsInPlace {
             animateButtonsFromOffScreen()
         }
@@ -45,7 +37,7 @@ class ActiveWorkoutTableViewController: UITableViewController, WeightUpdatedDele
     }
     
     override func viewDidLayoutSubviews() {
-        
+        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -146,27 +138,34 @@ class ActiveWorkoutTableViewController: UITableViewController, WeightUpdatedDele
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 
-//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 85))
-//        footerView.backgroundColor = UIColor(red: 243.0/255, green: 243.0/255, blue: 243.0/255, alpha: 1)
-//        let button = UIButton(frame: CGRect(x: tableView.bounds.width - 65, y: 10, width: 60 , height: 30))
-//        button.setTitle("Reply", forState: UIControlState.Normal)
-//        button.backgroundColor = UIColor(red: 155.0/255, green: 189.0/255, blue: 113.0/255, alpha: 1)
-//        button.layer.cornerRadius = 5
-//        button.addTarget(self, action: "reply", forControlEvents: UIControlEvents.TouchUpInside)
-//        footerView.addSubview(button)
-//        return footerView
-        if let footer = UINib(nibName: "ActiveWorkoutFooter", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView {
-            return footer
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
+        footer.backgroundColor = cellColorScheme[currentWorkout.exercises.count % cellColorScheme.count]
+        let centeringBlock = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: footerHeight))
+
+        footer.addSubview(centeringBlock)
+        centeringBlock.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(200)
+            make.top.equalTo(footer)
+            make.bottom.equalTo(footer)
+            make.centerY.equalTo(footer.snp_centerY)
+            make.centerX.equalTo(footer.snp_centerX)
         }
-//        return UINib(nibName: "ActiveWorkoutFooter", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as UIView
-        else {
-            return UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 85))
+        let checkImg = UIImage(named: "check")
+        let checkButton = UIImageView(image: checkImg)
+        checkButton.frame = CGRect(x: 0, y: 0, width: footerHeight, height: footerHeight)
+        centeringBlock.addSubview(checkButton)
+        checkButton.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(footerHeight-8)
+            make.height.equalTo(footerHeight-8)
+            make.right.equalTo(centeringBlock.snp_right)
+            make.centerY.equalTo(centeringBlock.snp_centerY)
         }
+        return footer
     }
     
    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
        // TODO: change this
-       return 85
+       return footerHeight
    }
     
     // MARK: - Navigation
@@ -183,4 +182,9 @@ class ActiveWorkoutTableViewController: UITableViewController, WeightUpdatedDele
         }
     }
 
+}
+
+class FooterNibUIView: UIView {
+    @IBOutlet weak var trst: UIImageView!
+    @IBOutlet weak var background: UIView!
 }
